@@ -1,0 +1,8 @@
+boto==2.36.0
+dailymotion==0.1.0
+pyyaml==3.11
+requests==2.5.3
+youtube-dl==2015.10.13
+httplib2
+urllib3
+google-api-python-client
