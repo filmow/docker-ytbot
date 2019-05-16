@@ -6,3 +6,4 @@ youtube-dl==2015.10.13
 httplib2
 urllib3
 google-api-python-client
+oauth2client
