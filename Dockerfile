@@ -1,19 +1,9 @@
-FROM alpine
-
-MAINTAINER Henrique Chehad <hchehad@gmail.com>
-
-RUN apk update && apk upgrade
-RUN apk add ca-certificates
-RUN apk add curl
-RUN apk add curl-dev
-RUN apk add py-curl
-RUN apk add python
-
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python
+FROM python:3.7-alpine
 
 ADD requirements.txt /root/requirements.txt
-RUN pip install -r /root/requirements.txt
 
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
-
+RUN apk update && apk upgrade && \
+	apk add ca-certificates curl curl-dev py-curl build-base && \
+	curl -sS https://bootstrap.pypa.io/get-pip.py | python && \
+	pip install -r /root/requirements.txt && \
+	rm -rf /var/cache/apk/*
